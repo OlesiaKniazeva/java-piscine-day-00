@@ -29,39 +29,48 @@ public class Program {
 
     private static int scanData(int week, Scanner sc) {
         int grade;
-        int weekNum;
+        int num;
         String word;
 
+        String weekAndNum = sc.nextLine();
+        Scanner weekNum = new Scanner(weekAndNum);
+
         grade = 10;
-        word = sc.next();
+        word = weekNum.next();
         if (word.equals("42")) {
             return 0;
         }
         if (!word.equals("Week")) {
             exitError();
         }
-        if (!sc.hasNextInt()) {
+        if (!weekNum.hasNextInt()) {
             exitError();
         }
-        weekNum = sc.nextInt();
-        if (weekNum < 0 || weekNum > 18 || weekNum != week) {
+        num = weekNum.nextInt();
+        weekNum.close();
+        if (num < 0 || num > 18 || num != week) {
             exitError();
         }
 
+        String grades = sc.nextLine();
+        Scanner s = new Scanner(grades);
         for (int i = 0; i < 5; ++i) {
             int scannedNum;
 
-            if (!sc.hasNextInt()) {
+            if (!s.hasNextInt()) {
+                s.close();
                 exitError();
             }
-            scannedNum = sc.nextInt();
+            scannedNum = s.nextInt();
             if (scannedNum < 1 || scannedNum > 9) {
+                s.close();
                 exitError();
             }
             if (scannedNum < grade) {
                 grade = scannedNum;
             }
         }
+        s.close();
         return grade;
     }
 
