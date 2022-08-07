@@ -4,4 +4,4 @@
 
 Basics of solving both trivial and more challenging business tasks using basic Java language constructs
 
-Tasks description: [Subject_day00.pdf](subject_day00.pdf)
+Tasks description: [Subject-Day00.pdf](Subject-Day00.pdf)
